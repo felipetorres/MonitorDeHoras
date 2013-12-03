@@ -4,6 +4,7 @@ import static com.example.monitordehoras.PrefsConstants.ALMOCO;
 import static com.example.monitordehoras.PrefsConstants.ALMOCO_TOTAL;
 import static com.example.monitordehoras.PrefsConstants.ENTRADA;
 import static com.example.monitordehoras.PrefsConstants.FILENAME;
+import static com.example.monitordehoras.PrefsConstants.ULTIMA_ENTRADA;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -24,23 +25,27 @@ import android.util.Log;
 
 public class ConnectionReceiver extends BroadcastReceiver{
 
+	private SharedPreferences preferences;
+	private DateTime dateTime;
+
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 		WifiInfo info = manager.getConnectionInfo();
 		String wifiName = info.getSSID();
 
-		DateTime dateTime = new DateTime();
+		dateTime = new DateTime();
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
-		SharedPreferences preferences = context.getSharedPreferences(FILENAME, 0);
+		preferences = context.getSharedPreferences(FILENAME, 0);
 		Editor editor = preferences.edit();
 		
 		if(wifiName.contains("caelum")) {
 			if (!preferences.contains(ENTRADA)) {
 				//tá na Caelum.
 				editor.putLong(ENTRADA, dateTime.getMillis());
+				editor.putLong(ULTIMA_ENTRADA, dateTime.getMillis());
 				
 				String entrada = formatter.format(dateTime.toDate());
 				
@@ -59,7 +64,9 @@ public class ConnectionReceiver extends BroadcastReceiver{
 				editor.putString(ALMOCO_TOTAL, diff);
 			}
 		} else {
-			if(preferences.contains(ENTRADA) && !preferences.contains(ALMOCO)) {
+			if(preferences.contains(ENTRADA)
+					&& minutosDeDiferencaMaiorQue(5)
+					&& !preferences.contains(ALMOCO)) {
 				Intent monitorService = new Intent(context, MonitorService.class);
 				context.startService(monitorService);
 			}
@@ -76,5 +83,11 @@ public class ConnectionReceiver extends BroadcastReceiver{
 		String s = instance.format(Seconds.secondsBetween(new DateTime(fim), inicio).getSeconds() % 60);
 		
 		return h + ":" + min + ":" + s;
+	}
+	
+	private boolean minutosDeDiferencaMaiorQue(int minutos) {
+		long entrada = preferences.getLong(ULTIMA_ENTRADA, 0);
+		//atual - entrada > minutos ==> entrada+minutos < atual
+		return new DateTime(entrada).plusMinutes(minutos).isBefore(dateTime.getMillis());
 	}
 }

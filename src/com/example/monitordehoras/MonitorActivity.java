@@ -4,6 +4,7 @@ import static com.example.monitordehoras.PrefsConstants.ALMOCO;
 import static com.example.monitordehoras.PrefsConstants.ALMOCO_TOTAL;
 import static com.example.monitordehoras.PrefsConstants.ENTRADA;
 import static com.example.monitordehoras.PrefsConstants.FILENAME;
+import static com.example.monitordehoras.PrefsConstants.ULTIMA_ENTRADA;
 
 import java.text.SimpleDateFormat;
 
@@ -49,17 +50,20 @@ public class MonitorActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				Editor editor = abreSharedPrefs();
+				editor.putLong(ULTIMA_ENTRADA, dateTime.getMillis());
+				editor.commit();
 				application.cancelService();
 				finish();
 			}
+
 		});
 		
 		lunching.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				SharedPreferences preferences = getSharedPreferences(FILENAME, 0);
-				Editor editor = preferences.edit();
+				Editor editor = abreSharedPrefs();
 				editor.putLong(ALMOCO, dateTime.getMillis());
 				editor.commit();
 				Log.i("Saiu para almoco em", formatter.format(dateTime.toDate()));
@@ -73,10 +77,10 @@ public class MonitorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				SharedPreferences preferences = getSharedPreferences(FILENAME, 0);
-				Editor editor = preferences.edit();
 				long entrada = preferences.getLong(ENTRADA, 0);
 				
 				if(entrada != 0) {
+					Editor editor = preferences.edit();
 					editor.remove(ENTRADA);
 					
 					String saida = formatter.format(dateTime.toDate());
@@ -119,6 +123,12 @@ public class MonitorActivity extends Activity {
 				criaDialog().show();
 			}
 		});
+	}
+	
+	private Editor abreSharedPrefs() {
+		SharedPreferences preferences = getSharedPreferences(FILENAME, 0);
+		Editor editor = preferences.edit();
+		return editor;
 	}
 	
 	private AlertDialog criaDialog() {
