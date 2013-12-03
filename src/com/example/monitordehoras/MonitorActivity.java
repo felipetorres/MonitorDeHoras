@@ -14,11 +14,14 @@ import org.joda.time.Minutes;
 import org.joda.time.Seconds;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -107,13 +110,41 @@ public class MonitorActivity extends Activity {
 			}
 		});
 		
+		
 		clear.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				MonitorDao dao = new MonitorDao(MonitorActivity.this);
-				dao.clear();
+
+				criaDialog().show();
 			}
 		});
 	}
+	
+	private AlertDialog criaDialog() {
+		TypedValue iconValue = new TypedValue();
+		getTheme().resolveAttribute(android.R.attr.alertDialogIcon, iconValue, true);
+		
+		final AlertDialog.Builder dialog = new AlertDialog.Builder(MonitorActivity.this);
+		dialog.setIcon(iconValue.resourceId);
+		dialog.setTitle(R.string.dialog_title);
+		dialog.setMessage(R.string.dialog_message);
+		dialog.setPositiveButton(R.string.dialog_erase, new DialogInterface.OnClickListener() {
+			
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					MonitorDao dao = new MonitorDao(MonitorActivity.this);
+					dao.clear();
+				}
+			});				
+		dialog.setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+		return dialog.create();
+	}
+
 }

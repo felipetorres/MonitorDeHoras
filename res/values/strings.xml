@@ -4,5 +4,14 @@
     <string name="app_name">MonitorDeHoras</string>
     <string name="action_settings">Settings</string>
     <string name="notice">Tá na Caelum ainda?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="lunching">Almoçando</string>
+    <string name="show_history">Ver histórico</string>
+    <string name="clear_history">Limpar histórico</string>
+    <string name="dialog_title">Apagar seu histórico de horas?</string>
+    <string name="dialog_message">Você vai perder todos os dados salvos.</string>
+    <string name="dialog_erase">Apagar</string>
+    <string name="dialog_cancel">Cancelar</string>
 
 </resources>
