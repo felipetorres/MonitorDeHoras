@@ -1,4 +1,4 @@
-package com.example.monitordehoras;
+package com.example.monitordehoras.model;
 
 import java.text.SimpleDateFormat;
 

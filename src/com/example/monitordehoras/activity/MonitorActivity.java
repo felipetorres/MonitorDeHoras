@@ -1,10 +1,10 @@
-package com.example.monitordehoras;
+package com.example.monitordehoras.activity;
 
-import static com.example.monitordehoras.PrefsConstants.ALMOCO;
-import static com.example.monitordehoras.PrefsConstants.ALMOCO_TOTAL;
-import static com.example.monitordehoras.PrefsConstants.ENTRADA;
-import static com.example.monitordehoras.PrefsConstants.FILENAME;
-import static com.example.monitordehoras.PrefsConstants.ULTIMA_ENTRADA;
+import static com.example.monitordehoras.model.Constants.ALMOCO;
+import static com.example.monitordehoras.model.Constants.ALMOCO_TOTAL;
+import static com.example.monitordehoras.model.Constants.ENTRADA;
+import static com.example.monitordehoras.model.Constants.FILENAME;
+import static com.example.monitordehoras.model.Constants.ULTIMA_ENTRADA;
 
 import java.text.SimpleDateFormat;
 
@@ -26,6 +26,11 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import com.example.monitordehoras.R;
+import com.example.monitordehoras.application.CustomApplication;
+import com.example.monitordehoras.dao.MonitorDao;
+import com.example.monitordehoras.model.DiaDeTrabalho;
 
 public class MonitorActivity extends Activity {
 	

@@ -1,6 +1,11 @@
-package com.example.monitordehoras;
+package com.example.monitordehoras.adapter;
 
 import java.util.List;
+
+import com.example.monitordehoras.R;
+import com.example.monitordehoras.R.id;
+import com.example.monitordehoras.R.layout;
+import com.example.monitordehoras.model.DiaDeTrabalho;
 
 import android.app.Activity;
 import android.view.View;

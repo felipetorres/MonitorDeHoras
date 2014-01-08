@@ -1,7 +1,9 @@
-package com.example.monitordehoras;
+package com.example.monitordehoras.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.monitordehoras.model.DiaDeTrabalho;
 
 import android.content.ContentValues;
 import android.content.Context;

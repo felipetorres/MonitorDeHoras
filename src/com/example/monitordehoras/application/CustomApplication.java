@@ -1,4 +1,6 @@
-package com.example.monitordehoras;
+package com.example.monitordehoras.application;
+
+import com.example.monitordehoras.service.MonitorService;
 
 import android.app.Application;
 import android.content.Intent;
