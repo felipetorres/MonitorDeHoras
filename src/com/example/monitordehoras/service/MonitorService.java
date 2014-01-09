@@ -1,13 +1,13 @@
 package com.example.monitordehoras.service;
 
-import com.example.monitordehoras.activity.MonitorActivity;
-
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Vibrator;
+
+import com.example.monitordehoras.activity.MonitorActivity;
 
 public class MonitorService extends Service {
 
@@ -25,6 +25,7 @@ public class MonitorService extends Service {
 		super.onCreate();
 		
 		final Context context = getApplicationContext();
+		final Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 		
 		handler = new Handler();
 		runnable = new Runnable() {
@@ -33,7 +34,6 @@ public class MonitorService extends Service {
 			public void run() {
 				//Ainda está na Caelum? Está almoçando?
 				
-				Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 				vibrator.vibrate(new long[] {0,1000,200,1000}, -1);
 				
 				Intent monitor = new Intent(context, MonitorActivity.class);
@@ -41,11 +41,11 @@ public class MonitorService extends Service {
 				monitor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				context.startActivity(monitor);
 				
-				handler.postDelayed(this, ONE_SEC*5);
+				handler.postDelayed(this, ONE_SEC*10);
 				
 			}
 		};
-		handler.post(runnable);
+		handler.postDelayed(runnable, ONE_SEC*30);
 	}
 	
 	@Override
