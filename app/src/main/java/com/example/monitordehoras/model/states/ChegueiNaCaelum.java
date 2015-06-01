@@ -32,7 +32,8 @@ public class ChegueiNaCaelum implements PrefsState {
 
 	@Override
 	public boolean isOnThisState() {
-		return wifiUtils.getWifiName().contains(WIFI_NAME) && !preferences.contains(ENTRADA);
+		return !wifiUtils.mudeiDeWifiDesdeOsUltimosCincoMinutos() &&
+				wifiUtils.getWifiName().contains(WIFI_NAME) && !preferences.contains(ENTRADA);
 	}
 
 	@Override

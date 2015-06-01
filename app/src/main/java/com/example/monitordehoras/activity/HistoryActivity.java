@@ -13,7 +13,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-public class HistoryActivity extends Activity{
+public class HistoryActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class HistoryActivity extends Activity{
 		setContentView(R.layout.activity_list);
 
 		ListView listView = (ListView) findViewById(R.id.lista);
-		
+
 		MonitorDao dao = new MonitorDao(this);
 		List<DiaDeTrabalho> lista = dao.lista();
 		

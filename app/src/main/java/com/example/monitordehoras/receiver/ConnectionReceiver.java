@@ -14,11 +14,20 @@ import com.example.monitordehoras.model.states.VolteiDoAlmoco;
 import com.example.monitordehoras.model.states.FuiEmboraOuFuiAlmocar;
 import com.example.monitordehoras.model.states.EstouTrabalhando;
 
+import org.joda.time.DateTime;
+
 public class ConnectionReceiver extends BroadcastReceiver {
+
+    WifiUtils wifiUtils;
+
+    public ConnectionReceiver() {
+        this.wifiUtils = new WifiUtils();
+    }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        WifiUtils wifiUtils = new WifiUtils(context);
+        this.wifiUtils.setContext(context);
+
         PrefsState[] s = {new ChegueiNaCaelum(context, wifiUtils),
                 new VolteiDoAlmoco(context, wifiUtils),
                 new FuiEmboraOuFuiAlmocar(context, wifiUtils),
@@ -28,5 +37,7 @@ public class ConnectionReceiver extends BroadcastReceiver {
         for (PrefsState state : states) {
             if (state.isOnThisState()) state.doIt();
         }
+
+        this.wifiUtils.setTempoDaUltimaConexaoWifi(new DateTime());
     }
 }
