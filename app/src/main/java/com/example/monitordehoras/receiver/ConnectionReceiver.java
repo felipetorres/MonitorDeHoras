@@ -6,6 +6,7 @@ import java.util.List;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.example.monitordehoras.model.WifiUtils;
 import com.example.monitordehoras.model.states.PrefsState;

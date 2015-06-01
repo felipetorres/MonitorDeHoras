@@ -16,6 +16,7 @@ public class WifiUtils {
 
     public WifiUtils() {
         ultimoWifiAcessado = "";
+        ultimaMudancaDeWifi = new DateTime();
     }
 
     public void setContext(Context context) {
