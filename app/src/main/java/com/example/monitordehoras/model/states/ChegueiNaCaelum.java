@@ -16,13 +16,13 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
-public class State1 implements PrefsState {
+public class ChegueiNaCaelum implements PrefsState {
 	
 	private Context context;
 	private String wifiName;
 	private SharedPreferences preferences;
 
-	public State1(Context context) {
+	public ChegueiNaCaelum(Context context) {
 		this.context = context;
 		this.wifiName = getWifiName();
 		this.preferences = context.getSharedPreferences(FILENAME, 0);

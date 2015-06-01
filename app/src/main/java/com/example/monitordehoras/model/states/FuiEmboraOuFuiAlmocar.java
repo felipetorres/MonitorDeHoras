@@ -12,13 +12,13 @@ import android.net.wifi.WifiManager;
 
 import com.example.monitordehoras.service.MonitorService;
 
-public class State3 implements PrefsState {
+public class FuiEmboraOuFuiAlmocar implements PrefsState {
 	
 	private Context context;
 	private String wifiName;
 	private SharedPreferences preferences;
 
-	public State3(Context context) {
+	public FuiEmboraOuFuiAlmocar(Context context) {
 		this.context = context;
 		this.wifiName = getWifiName();
 		this.preferences = context.getSharedPreferences(FILENAME, 0);

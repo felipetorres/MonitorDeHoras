@@ -7,13 +7,13 @@ import android.net.wifi.WifiManager;
 
 import com.example.monitordehoras.application.CustomApplication;
 
-public class State4 implements PrefsState {
+public class EstouTrabalhando implements PrefsState {
 	
 	private Context context;
 	private String wifiName;
 	private CustomApplication application;
 
-	public State4(Context context) {
+	public EstouTrabalhando(Context context) {
 		this.context = context;
 		this.wifiName = getWifiName();
 		this.application = (CustomApplication) context.getApplicationContext();

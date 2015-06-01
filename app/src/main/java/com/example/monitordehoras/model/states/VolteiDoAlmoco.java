@@ -20,13 +20,13 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
-public class State2 implements PrefsState {
+public class VolteiDoAlmoco implements PrefsState {
 	
 	private Context context;
 	private String wifiName;
 	private SharedPreferences preferences;
 
-	public State2(Context context) {
+	public VolteiDoAlmoco(Context context) {
 		this.context = context;
 		this.wifiName = getWifiName();
 		this.preferences = context.getSharedPreferences(FILENAME, 0);

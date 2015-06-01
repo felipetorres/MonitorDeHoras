@@ -8,16 +8,16 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.monitordehoras.model.states.PrefsState;
-import com.example.monitordehoras.model.states.State1;
-import com.example.monitordehoras.model.states.State2;
-import com.example.monitordehoras.model.states.State3;
-import com.example.monitordehoras.model.states.State4;
+import com.example.monitordehoras.model.states.ChegueiNaCaelum;
+import com.example.monitordehoras.model.states.VolteiDoAlmoco;
+import com.example.monitordehoras.model.states.FuiEmboraOuFuiAlmocar;
+import com.example.monitordehoras.model.states.EstouTrabalhando;
 
 public class ConnectionReceiver extends BroadcastReceiver{
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		PrefsState[] s = {new State1(context), new State2(context), new State3(context), new State4(context)};
+		PrefsState[] s = {new ChegueiNaCaelum(context), new VolteiDoAlmoco(context), new FuiEmboraOuFuiAlmocar(context), new EstouTrabalhando(context)};
 		List<PrefsState> states = Arrays.asList(s);
 		
 		for (PrefsState state : states) {
