@@ -3,7 +3,8 @@ package com.example.monitordehoras.model.states;
 import static com.example.monitordehoras.model.Constants.ALMOCO;
 import static com.example.monitordehoras.model.Constants.ENTRADA;
 import static com.example.monitordehoras.model.Constants.FILENAME;
-import static com.example.monitordehoras.model.Constants.WIFI_NAME;
+import static com.example.monitordehoras.model.Constants.NOME_DO_WIFI;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,7 +28,8 @@ public class FuiEmboraOuFuiAlmocar implements PrefsState {
 
 	@Override
 	public boolean isOnThisState() {
-		return !wifiUtils.getWifiName().contains(WIFI_NAME)
+        String nomeDoWifi = preferences.getString(NOME_DO_WIFI, "");
+		return !wifiUtils.getWifiName().matches(nomeDoWifi)
 				&& preferences.contains(ENTRADA)
 				&& !preferences.contains(ALMOCO);
 	}

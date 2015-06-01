@@ -1,32 +1,36 @@
 package com.example.monitordehoras.model.states;
 
-import static com.example.monitordehoras.model.Constants.WIFI_NAME;
 import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.content.SharedPreferences;
 
 import com.example.monitordehoras.application.CustomApplication;
 import com.example.monitordehoras.model.WifiUtils;
 
+import static com.example.monitordehoras.model.Constants.FILENAME;
+import static com.example.monitordehoras.model.Constants.NOME_DO_WIFI;
+
 public class EstouTrabalhando implements PrefsState {
-	
-	private Context context;
-	private WifiUtils wifiUtils;
-	private CustomApplication application;
 
-	public EstouTrabalhando(Context context, WifiUtils wifiUtils) {
-		this.context = context;
-		this.wifiUtils = wifiUtils;
-		this.application = (CustomApplication) context.getApplicationContext();
-	}
+    private final SharedPreferences preferences;
+    private Context context;
+    private WifiUtils wifiUtils;
+    private CustomApplication application;
 
-	@Override
-	public boolean isOnThisState() {
-		return wifiUtils.getWifiName().contains(WIFI_NAME);
-	}
+    public EstouTrabalhando(Context context, WifiUtils wifiUtils) {
+        this.context = context;
+        this.wifiUtils = wifiUtils;
+        this.application = (CustomApplication) context.getApplicationContext();
+        this.preferences = context.getSharedPreferences(FILENAME, Context.MODE_PRIVATE);
+    }
 
-	@Override
-	public void doIt() {
-		application.cancelService();
-	}
+    @Override
+    public boolean isOnThisState() {
+        String nomeDoWifi = this.preferences.getString(NOME_DO_WIFI, "");
+        return wifiUtils.getWifiName().matches(nomeDoWifi);
+    }
+
+    @Override
+    public void doIt() {
+        application.cancelService();
+    }
 }

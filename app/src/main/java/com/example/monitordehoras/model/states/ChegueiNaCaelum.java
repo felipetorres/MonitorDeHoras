@@ -2,8 +2,8 @@ package com.example.monitordehoras.model.states;
 
 import static com.example.monitordehoras.model.Constants.ENTRADA;
 import static com.example.monitordehoras.model.Constants.FILENAME;
+import static com.example.monitordehoras.model.Constants.NOME_DO_WIFI;
 import static com.example.monitordehoras.model.Constants.ULTIMA_ENTRADA;
-import static com.example.monitordehoras.model.Constants.WIFI_NAME;
 
 import java.text.SimpleDateFormat;
 
@@ -32,8 +32,9 @@ public class ChegueiNaCaelum implements PrefsState {
 
 	@Override
 	public boolean isOnThisState() {
+        String nomeDoWifi = this.preferences.getString(NOME_DO_WIFI, "");
 		return !wifiUtils.mudeiDeWifiDesdeOsUltimosCincoMinutos() &&
-				wifiUtils.getWifiName().contains(WIFI_NAME) && !preferences.contains(ENTRADA);
+				wifiUtils.getWifiName().matches(nomeDoWifi) && !preferences.contains(ENTRADA);
 	}
 
 	@Override

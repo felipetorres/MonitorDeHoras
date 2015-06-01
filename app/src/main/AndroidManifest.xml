@@ -27,9 +27,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <activity android:name="com.example.monitordehoras.activity.HistoryActivity" />
-        
+
+        <activity android:name=".activity.WifiPatternActivity"
+            android:label="Alterar padrão"/>
+
         <receiver android:name="com.example.monitordehoras.receiver.ConnectionReceiver">
             <intent-filter>
                 <action android:name="android.net.wifi.STATE_CHANGE"/>
