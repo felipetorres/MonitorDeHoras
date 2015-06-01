@@ -20,21 +20,23 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
+import com.example.monitordehoras.model.WifiUtils;
+
 public class VolteiDoAlmoco implements PrefsState {
 	
 	private Context context;
-	private String wifiName;
+	private WifiUtils wifiUtils;
 	private SharedPreferences preferences;
 
-	public VolteiDoAlmoco(Context context) {
+	public VolteiDoAlmoco(Context context, WifiUtils wifiUtils) {
 		this.context = context;
-		this.wifiName = getWifiName();
+		this.wifiUtils = wifiUtils;
 		this.preferences = context.getSharedPreferences(FILENAME, 0);
 	}
 
 	@Override
 	public boolean isOnThisState() {
-		return wifiName.contains(WIFI_NAME) && preferences.contains(ALMOCO);
+		return wifiUtils.getWifiName().contains(WIFI_NAME) && preferences.contains(ALMOCO);
 	}
 
 	@Override

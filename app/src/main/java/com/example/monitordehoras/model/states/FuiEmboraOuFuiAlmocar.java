@@ -10,23 +10,24 @@ import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
+import com.example.monitordehoras.model.WifiUtils;
 import com.example.monitordehoras.service.MonitorService;
 
 public class FuiEmboraOuFuiAlmocar implements PrefsState {
 	
 	private Context context;
-	private String wifiName;
+	private WifiUtils wifiUtils;
 	private SharedPreferences preferences;
 
-	public FuiEmboraOuFuiAlmocar(Context context) {
+	public FuiEmboraOuFuiAlmocar(Context context, WifiUtils wifiUtils) {
 		this.context = context;
-		this.wifiName = getWifiName();
+		this.wifiUtils = wifiUtils;
 		this.preferences = context.getSharedPreferences(FILENAME, 0);
 	}
 
 	@Override
 	public boolean isOnThisState() {
-		return !wifiName.contains(WIFI_NAME) 
+		return !wifiUtils.getWifiName().contains(WIFI_NAME)
 				&& preferences.contains(ENTRADA)
 				&& !preferences.contains(ALMOCO);
 	}

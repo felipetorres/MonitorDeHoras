@@ -16,21 +16,23 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
+import com.example.monitordehoras.model.WifiUtils;
+
 public class ChegueiNaCaelum implements PrefsState {
 	
 	private Context context;
-	private String wifiName;
+	private WifiUtils wifiUtils;
 	private SharedPreferences preferences;
 
-	public ChegueiNaCaelum(Context context) {
+	public ChegueiNaCaelum(Context context, WifiUtils wifiUtils) {
 		this.context = context;
-		this.wifiName = getWifiName();
+		this.wifiUtils = wifiUtils;
 		this.preferences = context.getSharedPreferences(FILENAME, 0);
 	}
 
 	@Override
 	public boolean isOnThisState() {
-		return wifiName.contains(WIFI_NAME) && !preferences.contains(ENTRADA);
+		return wifiUtils.getWifiName().contains(WIFI_NAME) && !preferences.contains(ENTRADA);
 	}
 
 	@Override
@@ -50,9 +52,4 @@ public class ChegueiNaCaelum implements PrefsState {
 		editor.commit();
 	}
 
-	private String getWifiName() {
-		WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-		WifiInfo info = manager.getConnectionInfo();
-		return info.getSSID();
-	}
 }
