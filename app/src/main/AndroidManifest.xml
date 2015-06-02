@@ -1,16 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.monitordehoras">
-    
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name="com.example.monitordehoras.application.CustomApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon2"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity
             android:name="com.example.monitordehoras.activity.MonitorActivity"
             android:label="Monitor"
@@ -22,20 +22,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.monitordehoras.activity.HistoryActivity"
-            android:theme="@style/Theme_NoActionBar"/>
+        <activity
+            android:name="com.example.monitordehoras.activity.HistoryActivity"
+            android:theme="@style/Theme_NoActionBar" />
 
-        <activity android:name=".activity.WifiPatternActivity"
-            android:theme="@style/Theme_Dialog"/>
+        <activity
+            android:name=".activity.WifiPatternActivity"
+            android:theme="@style/Theme_Dialog" />
 
         <receiver android:name="com.example.monitordehoras.receiver.ConnectionReceiver">
             <intent-filter>
-                <action android:name="android.net.wifi.STATE_CHANGE"/>
-                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
-        
-        <service android:name="com.example.monitordehoras.service.MonitorService"/>
+
+        <service android:name="com.example.monitordehoras.service.MonitorService" />
     </application>
 
 </manifest>
