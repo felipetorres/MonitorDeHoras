@@ -41,7 +41,7 @@ public class CustomAdapter extends BaseAdapter{
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
-		View layout = activity.getLayoutInflater().inflate(R.layout.item, null);
+		View layout = activity.getLayoutInflater().inflate(R.layout.item, parent, false);
 		
 		TextView data = (TextView) layout.findViewById(R.id.data);
 		TextView entrada = (TextView) layout.findViewById(R.id.entrada);

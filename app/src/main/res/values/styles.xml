@@ -22,4 +22,10 @@
         <item name="android:windowMinWidthMinor">97%</item>
     </style>
 
+    <style name="Theme_NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimaryDark">#e1003d7a</item>
+    </style>
+
 </resources>

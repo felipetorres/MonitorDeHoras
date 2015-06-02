@@ -6,6 +6,7 @@ import org.joda.time.DateTime;
 
 public class DiaDeTrabalho {
 
+    private Long id;
 	private long entrada;
 	private long saida;
 	private String almoco;
@@ -27,8 +28,12 @@ public class DiaDeTrabalho {
 	public String getAlmoco() {
 		return almoco;
 	}
-	
-	public String formataData() {
+
+    public Long getId() {
+        return id;
+    }
+
+    public String formataData() {
 		return formata(this.entrada, "dd/MM/yyyy");
 	}
 	
@@ -48,4 +53,8 @@ public class DiaDeTrabalho {
 	private String formataHoraDe(long hora) {
 		return formata(hora, "HH:mm:ss");
 	}
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

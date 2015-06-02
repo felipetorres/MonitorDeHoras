@@ -58,9 +58,15 @@ public class MonitorDao extends SQLiteOpenHelper{
 		Cursor cursor = getReadableDatabase().rawQuery("SELECT * FROM " + TABELA, null);
 		while(cursor.moveToNext()) {
 			DiaDeTrabalho diaDeTrabalho = new DiaDeTrabalho(cursor.getLong(1), cursor.getLong(2), cursor.getString(3));
+            diaDeTrabalho.setId(cursor.getLong(0));
 			dias.add(diaDeTrabalho);
 		}
 		
 		return dias;
 	}
+
+    public void deleta(DiaDeTrabalho diaDeTrabalho) {
+        String[] arg = {diaDeTrabalho.getId().toString()};
+        getWritableDatabase().delete(TABELA, "id = ?", arg);
+    }
 }

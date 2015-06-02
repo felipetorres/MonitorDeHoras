@@ -28,7 +28,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.monitordehoras.activity.HistoryActivity" />
+        <activity android:name="com.example.monitordehoras.activity.HistoryActivity"
+            android:theme="@style/Theme_NoActionBar"/>
 
         <activity android:name=".activity.WifiPatternActivity"
             android:theme="@style/Theme_Dialog"/>
