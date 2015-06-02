@@ -11,9 +11,10 @@ import com.example.monitordehoras.model.DiaDeTrabalho;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 
-public class HistoryActivity extends Activity {
+public class HistoryActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

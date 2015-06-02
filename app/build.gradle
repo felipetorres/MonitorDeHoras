@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:21.0.3'
     compile 'joda-time:joda-time:2.8'
+    compile 'com.android.support:appcompat-v7:21.0.3'
 }

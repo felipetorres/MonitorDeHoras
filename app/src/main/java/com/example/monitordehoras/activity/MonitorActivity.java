@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -34,7 +35,7 @@ import static com.example.monitordehoras.model.Constants.ENTRADA;
 import static com.example.monitordehoras.model.Constants.FILENAME;
 import static com.example.monitordehoras.model.Constants.ULTIMA_ENTRADA;
 
-public class MonitorActivity extends Activity {
+public class MonitorActivity extends ActionBarActivity {
 
     private DateTime dateTime = new DateTime();
     private CustomApplication application;
