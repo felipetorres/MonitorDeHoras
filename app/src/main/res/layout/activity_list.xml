@@ -20,7 +20,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Data"
+            android:text="@string/list_header_data"
             android:textColor="#FFF"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -31,7 +31,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Entrada"
+            android:text="@string/list_header_entrada"
             android:textColor="#FFF"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -42,7 +42,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Saída"
+            android:text="@string/list_header_saida"
             android:textColor="#FFF"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -53,7 +53,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Almoço"
+            android:text="@string/list_header_almoco"
             android:textColor="#FFF"
             android:textSize="17sp"
             android:textStyle="bold" />

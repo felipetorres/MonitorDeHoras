@@ -7,28 +7,31 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="Padrão atual:"
+            android:text="@string/pattern_atual"
+            android:textColor="#000"
             android:textSize="17sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/wifi_pattern_atual"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#000" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
-        android:text="Novo padrão:"
+        android:text="@string/pattern_novo"
+        android:textColor="#000"
         android:textSize="17sp"
         android:textStyle="bold" />
 
@@ -36,7 +39,7 @@
         android:id="@+id/wifi_pattern"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digita ae champz..." />
+        android:hint="@string/pattern_hint" />
 
     <RadioGroup
         android:id="@+id/wifi_pattern_radio_group"
@@ -55,7 +58,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:checked="true"
-            android:text="Contendo o texto" />
+            android:text="@string/pattern_contendo" />
 
         <RadioButton
             android:id="@+id/wifi_pattern_igual"
@@ -63,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="Igual ao texto" />
+            android:text="@string/pattern_igual" />
     </RadioGroup>
 
     <Button
@@ -71,6 +74,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Salvar" />
+        android:text="@string/pattern_salvar" />
 
 </LinearLayout>

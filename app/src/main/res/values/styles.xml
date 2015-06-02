@@ -28,4 +28,11 @@
         <item name="colorPrimaryDark">#e1003d7a</item>
     </style>
 
+    <style name="Theme_Material" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#ffa1000b</item>
+        <item name="colorPrimaryDark">#ff630009</item>
+        <item name="android:textColorPrimary">#FFF</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
 </resources>

@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MonitorDeHoras</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Monitor de horas</string>
+
     <string name="notice">Tá na Caelum ainda?</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="lunching">Almoçando</string>
+
     <string name="show_history">Ver histórico</string>
     <string name="clear_history">Limpar histórico</string>
+
     <string name="dialog_title">Apagar seu histórico de horas?</string>
     <string name="dialog_message">Você vai perder todos os dados salvos.</string>
     <string name="dialog_erase">Apagar</string>
     <string name="dialog_cancel">Cancelar</string>
 
+    <string name="list_header_data">Data</string>
+    <string name="list_header_entrada">Entrada</string>
+    <string name="list_header_saida">Saída</string>
+    <string name="list_header_almoco">Almoço</string>
+
+    <string name="pattern_contendo">Contendo o texto</string>
+    <string name="pattern_igual">Igual ao texto</string>
+    <string name="pattern_salvar">Salvar</string>
+    <string name="pattern_hint">Digita ae champz…</string>
+    <string name="pattern_novo">Novo padrão:</string>
+    <string name="pattern_atual">Padrão atual:</string>
 </resources>
